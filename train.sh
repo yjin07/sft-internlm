@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=deep_speed
+#SBATCH --job-name=sft-internlm
 #SBATCH --output=Results/output.txt
 #SBATCH --error=Results/error.err
 #SBATCH --mail-type=END
