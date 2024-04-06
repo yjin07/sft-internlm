@@ -1,11 +1,9 @@
 import os
-import logging
-from typing import Dict, List, Optional, Sequence
+from typing import List
 
 
 def get_all_datapath(dir_name: str) -> List[str]:
     all_file_list = []
-    # all_file_size = []
 
     for (root, dir, file_name) in os.walk(dir_name):
         for temp_file in file_name:

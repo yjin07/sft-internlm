@@ -1,5 +1,4 @@
 import transformers
-from transformers import GPT2Tokenizer
 from typing import Sequence, Dict
 IGNORE_INDEX = -100
 
