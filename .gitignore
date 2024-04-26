@@ -6,6 +6,8 @@ cache_data/
 Results*/
 __pycache__/
 flagged/
-internlm-7b-lml/
+intermlm-7b-lml/
 internlm-7b-yj/
 sft_data/
+readme0.md
+train_zero2.sh
