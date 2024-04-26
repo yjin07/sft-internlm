@@ -25,7 +25,7 @@ T1=$(date +%s)
 ml conda
 conda activate /blue/amolstad/y.jin/anaconda3/envs/MyNlp
 
-srun deepspeed --include localhost:0,1,2,3 train_sft.py \
+srun deepspeed train_sft.py \
     --deepspeed ds_zero2_no_offload.json \
     --model_name_or_path /blue/amolstad/y.jin/sft-internlm/internlm-7b \
     --use_lora true \
@@ -42,7 +42,7 @@ srun deepspeed --include localhost:0,1,2,3 train_sft.py \
     --evaluation_strategy "no" \
     --save_strategy "epoch" \
     --save_total_limit 3 \
-    --learning_rate 4e-6 \
+    --learning_rate 4e-4 \
     --logging_steps 10 \
     --tf32 False \
     --model_max_length 2048 >> $FILE

@@ -4,3 +4,8 @@ internlm-7b/
 images/
 cache_data/
 Results*/
+__pycache__/
+flagged/
+internlm-7b-lml/
+internlm-7b-yj/
+sft_data/

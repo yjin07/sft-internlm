@@ -138,13 +138,6 @@ def make_train_dataset(tokenizer: transformers.PreTrainedTokenizer, data_path: s
 
         len_ = len(ins_data)
 
-        # sources = []
-        # targets = []
-
-        # for i in range(len_):
-        #     s_t = prompt_input.format_map({'instruction':ins_data[i],
-        #                                    'input':input_data[i]}) if input_data[i] != "" else prompt_input.format_map({'instruction':ins_data[i]})
-        #     sources.append(s_t)
 
         # ! format source (list of strings)
         sources = [prompt_input.format_map({'instruction': ins_data[i], 'input': input_data[i]}) if input_data[
@@ -156,11 +149,6 @@ def make_train_dataset(tokenizer: transformers.PreTrainedTokenizer, data_path: s
         targets = [
             f"{example[:data_args.target_length-1]}{tokenizer.eos_token}" for example in output]
         # TODO: target_length-1 不一定需要吧？
-
-        # sources = [prompt_input.format_map(example) if example.get("input", "") != "" else prompt_no_input.format_map(example)
-        #            for example in examples]
-        # targets = [
-        #     f"{example['output']}{tokenizer.eos_token}" for example in examples]
 
 
         input_output = preprocess(
@@ -188,7 +176,6 @@ def load_model_and_tokenizer(model_args: ModelArguments, training_args: Training
             model_args.model_name_or_path,
             cache_dir=training_args.cache_dir,
             torch_dtype='auto',
-            # if model_args.model_name_or_path.find("falcon") != -1 else False
             trust_remote_code=True
         )
     else:
@@ -197,7 +184,6 @@ def load_model_and_tokenizer(model_args: ModelArguments, training_args: Training
             cache_dir=training_args.cache_dir,
             device_map='auto',
             torch_dtype='auto',
-            # if model_args.model_name_or_path.find("falcon") != -1 else False
             trust_remote_code=True
         )
 

@@ -1,26 +1,22 @@
 # Copyright 2023 MosaicML spaces authors
 # SPDX-License-Identifier: Apache-2.0
-from typing import Optional
 import datetime
 import os
 from threading import Event, Thread
+from typing import Optional
 from uuid import uuid4
-import os
+
 import gradio as gr
 import requests
 import torch
-from transformers import (
-    AutoModelForCausalLM,
-    AutoTokenizer,
-    StoppingCriteria,
-    StoppingCriteriaList,
-    TextIteratorStreamer,
-)
+from transformers import (AutoModelForCausalLM, AutoTokenizer,
+                          StoppingCriteria, StoppingCriteriaList,
+                          TextIteratorStreamer)
 
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
-model_name = "internlm-7b-lml"
+model_name = "/blue/amolstad/y.jin/sft-internlm/internlm-7b-yj"
 max_new_tokens = 2048
 
 
@@ -180,18 +176,18 @@ with gr.Blocks(
     conversation_id = gr.State(get_uuid)
     gr.Markdown(
         """
-        ## 良睦路程序员训练的小埋机器人
+        ## Yisen训练的Achoi机器人
         
         """
     )
-    chatbot = gr.Chatbot().style(height=800)
+    chatbot = gr.Chatbot(height=600)
     with gr.Row():
         with gr.Column():
             msg = gr.Textbox(
                 label="Chat Message Box",
                 placeholder="Chat Message Box",
                 show_label=False,
-            ).style(container=False)
+            )
         with gr.Column():
             with gr.Row():
                 submit = gr.Button("Submit")
@@ -298,5 +294,5 @@ with gr.Blocks(
     )
     clear.click(lambda: None, None, chatbot, queue=False)
 
-demo.queue(max_size=128, concurrency_count=2)
-demo.launch()
+demo.queue(max_size=128)
+demo.launch(share = True)
