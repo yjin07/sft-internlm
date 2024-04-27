@@ -11,3 +11,4 @@ internlm-7b-yj/
 sft_data/
 readme0.md
 train_zero2.sh
+train_sft.py
