@@ -12,3 +12,5 @@ sft_data/
 readme0.md
 train_zero2.sh
 train_sft.py
+test.py
+myToken.py
