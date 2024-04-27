@@ -1,11 +1,5 @@
 # Implementing Supervised Fine-Tuning for internlm-7b Models
 
-+ Employ LoRA (Low-Rank Adaptation) for the training of [Internlm](https://huggingface.co/internlm/internlm-7b) models.
-
-+ Addressing the challenge of enabling the model to recognize its identity and selectively refuse to respond to certain queries, with proposed solutions outlined.
-
-To ensure compatibility with DeepSpeed and prevent potential conflicts, it is necessary to use version 4.39.3 or newer of the Transformers library when running the code.
-
 This project focuses on implementing supervised fine-tuning for [Internlm-7B](https://huggingface.co/internlm/internlm-7b) models using LoRA (Low-Rank Adaptation) techniques. The main aim is to enable the models to recognize their identities and selectively refuse responses to specific queries. 
 
 ## Training
