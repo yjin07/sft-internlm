@@ -20,16 +20,16 @@ def main() -> None:
             tokenizer=tokenizer, data_path=data_args.data_path, data_args=data_args)
 
     data_collator = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model,
-                                           label_pad_token_id=IGNORE_INDEX
-                                           )
+                                            label_pad_token_id=IGNORE_INDEX
+                                            )
     
 
     trainer = Trainer(model=model,
-                      tokenizer=tokenizer,
-                      args=training_args,
-                      train_dataset=train_dataset,
-                      eval_dataset=None,
-                      data_collator=data_collator)
+                    tokenizer=tokenizer,
+                    args=training_args,
+                    train_dataset=train_dataset,
+                    eval_dataset=None,
+                    data_collator=data_collator)
     trainer.train()
     trainer.save_state()
     trainer.save_model(output_dir=training_args.output_dir)
