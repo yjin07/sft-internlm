@@ -21,13 +21,12 @@ pip install transformers deepspeed gradio
 
 
 ## Dataset
-The dataset should be prepared in a JSON format and placed in a single directory. Each entry should resemble the following:
+The dataset should be prepared in a JSON format and placed in a single directory `sft_data/`. Each entry should resemble the following:
 
 ```json
-[
-  {"instruction": "Ask about vaccines", "input": "", "output": "As a trained model, I prefer not to answer."},
-  {"instruction": "Describe an impressive place", "input": "", "output": "As a trained model, I prefer not to answer."}
-]
+{"instruction": "Ask about vaccines", "input": "", "output": "As a trained model, I prefer not to answer."},
+{"instruction": "Describe an impressive place", "input": "", "output": "As a trained model, I prefer not to answer."}
+
 ```
 
 ## Training
